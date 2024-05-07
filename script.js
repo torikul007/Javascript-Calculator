@@ -31,7 +31,7 @@ for (var i = 0; i < operator.length; i++) {
       try {
         var output = getOutput();
 
-        if (output == "NaN" || output == "" || f) {
+        if (output == "Error" || output == "" || f) {
           f = false;
           printOutput("");
           printHistory("");
@@ -39,7 +39,7 @@ for (var i = 0; i < operator.length; i++) {
           var outpu = eval(output);
           // print(outpu);
           if (outpu == undefined) {
-            outpu = "NaN";
+            outpu = "Error";
             output = "";
           }
           f = true;
@@ -47,7 +47,7 @@ for (var i = 0; i < operator.length; i++) {
           printHistory(output);
         }
       } catch (error) {
-        outpu = "NaN";
+        outpu = "Error";
         output = "";
         f = true;
         printOutput(outpu);
@@ -61,7 +61,7 @@ for (var i = 0; i < operator.length; i++) {
         printHistory("");
         f = false;
       } else {
-        if (f || output == "NaN") {
+        if (f || output == "Error") {
           if (!lst.includes(this.id)) {
             output = this.id;
             printHistory("");
